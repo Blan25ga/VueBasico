@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="es" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Basico</title>
+</head>
+
+<body>
+    <h1 id="titulo1">Vue Basico, Introduccion</h1>
+    <!-- Aqui se muestra el titulo, el cual se va a cambiar con Vue mediente en "id titulo1" -->
+    <p>lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quod.</p>
+    <Button onClick="saludar2()">Click</Button>
+    <!-- dar espacio entre los botones -->
+    <br>
+    <br>
+    <input id="input" type="text">
+    <button onclick="limpiar()">Limpiar</button>
+    <br><br>
+
+
+    <button onclick="ListaDeFrutas()">Enlistar</button>
+
+    <div id="app">
+
+    </div>
+
+
+
+
+
+
+
+    <script>
+        function saludar(mensaje) { // Funcion que se ejecuta al hacer click en el boton
+            console.log("a Mundo");
+        };
+        function saludar2() {
+            console.log("Estas haciendo click");
+            //
+            //recuperacion del id del h1 y se le asigna el valor de "Hola Mundo", al hacer click en el boton
+            var elementoH1 = document.getElementById("titulo1");
+            elementoH1.innerHTML = "Se cambia el titulo desde la funcion js."; //innerHTML es para cambiar el contenido del elemento
+        };
+        //funcion que realice la limpieza del input
+        function limpiar() {
+            var elementoInput = document.getElementById("input");
+            elementoInput.value = ""; //value es para cambiar el valor del elemento
+        };
+
+        //fincion lista de frutas con metodo child
+        function ListaDeFrutas() {
+            var elementoDiv = document.getElementById("app");
+            var lista = document.createElement("ul");
+            var frutas = ["Manzana", "Pera", "Sandia", "Melon", "Fresa", "Naranja"];
+            for (var i = 0; i < frutas.length; i++) {
+                var elementoLista = document.createElement("li");
+                elementoLista.innerHTML = frutas[i];
+                lista.appendChild(elementoLista);
+            }
+            elementoDiv.appendChild(lista);
+        };
+
+
+    </script>
+</body>
+
+</html>
