@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica con VueJs</title>
+</head>
+
+<body>
+    <h1>Trabajando con Vue.Js!!</h1>
+    <div id="app">
+        <p>
+            {{ saludo }}
+        </p>
+        <h2>======Directivas Vue=======</h2>
+
+        <h3>v-show</h3>
+        <p v-show="activo"> {{ saludo }} </p> <!-- v-show es para mostrar o no mostrar un elemento -->
+
+        <h3>v-if condicional</h3>
+        <p v-if="activo === true">Si estactivo se muestra </p> <!-- v-if es para mostrar o no mostrar un elemento -->
+
+
+    </div>
+
+
+
+    <script type="text/javascript" src="vue2.js"></script>
+    <!-- importamos vue, desde la pagina, se guardo toda la pagina abirendo el link de vue2-->
+    <script type="text/javascript" src="index.js"></script>
+    <!-- importamos el archivo js donde se encuentra el codigo de vue, siempre despues de la pagina de vue-->
+</body>
+
+</html>
