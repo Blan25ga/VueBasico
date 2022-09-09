@@ -14,7 +14,7 @@
     <!-- Aqui se muestra el titulo, el cual se va a cambiar con Vue mediente en "id titulo1" -->
     <p>lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quod.</p>
     <Button onClick="saludar2()">Click</Button>
-    <!-- dar espacio entre los botones -->
+    <!-- dar espacio entre los botones  (br)-->
     <br>
     <br>
     <input id="input" type="text">
@@ -53,13 +53,13 @@
 
         //fincion lista de frutas con metodo child
         function ListaDeFrutas() {
-            var elementoDiv = document.getElementById("app");
+            var elementoDiv = document.getElementById("app"); //recuperacion del id del div
             var lista = document.createElement("ul");
             var frutas = ["Manzana", "Pera", "Sandia", "Melon", "Fresa", "Naranja"];
             for (var i = 0; i < frutas.length; i++) {
                 var elementoLista = document.createElement("li");
                 elementoLista.innerHTML = frutas[i];
-                lista.appendChild(elementoLista);
+                lista.appendChild(elementoLista); //appendChild es para agregar un elemento hijo
             }
             elementoDiv.appendChild(lista);
         };
