@@ -19,8 +19,44 @@
         <h3>v-show</h3>
         <p v-show="activo"> {{ saludo }} </p> <!-- v-show es para mostrar o no mostrar un elemento -->
 
-        <h3>v-if condicional</h3>
-        <p v-if="activo === true">Si estactivo se muestra </p> <!-- v-if es para mostrar o no mostrar un elemento -->
+        <h3>v-if / v-if-else / v-else condicional</h3>
+        <p v-if="activo === true">>Esta activo </p><!-- v-if es para mostrar o no mostrar un elemento -->
+        <p v-else-if="activo === false">>No esta activo</p>
+        <p v-else> No se que hacer</p>
+
+        <h3>v-for : Directivas para sentencias repetitivas</h3>
+        <ul>
+            <li v-for="frutas in frutas" :key="frutas">Fruta a comer: {{ frutas }} </li>
+            <!-- v-for es para recorrer un array, :key es para que vuejs pueda identificar cada elemento -->
+        </ul>
+
+        <ul>
+            <li v-for="n in 5" :key="n"> {{ n }} </li> <!-- en este ejemplo se crea un array de 5 elementos -->
+        </ul>
+
+        <h3>v-html directiva para pintar html</h3>
+        <p v-html="html"></p> <!-- v-html es para pintar html -->
+
+        <h3>v-on:click directiva para eventos</h3>
+
+        <button v-on:click="saludar">Saludar</button> <!-- v-on:click es para ejecutar una funcion al hacer click -->
+        <button @click="saludar">Saludar</button> <!-- @click es para ejecutar una funcion al hacer click -->
+        <button @click="saludar" @click.once="saludar">Saludar</button>
+        <!-- @click.once es para ejecutar una funcion al hacer click una sola vez -->
+
+        <h3>Binding</h3>
+        <!-- Binding es para enlazar datos, en este caso se enlaza el valor del input con el valor de la variable -->
+        <p>
+            <input type="text" v-model="nombre"> <!-- v-model es para hacer binding con un input -->
+        </p>
+        <p>
+            {{ nombre }}
+            <!-- se muestra el valor de la variable nombre -->
+        </p>
+
+        <h3>Eventos y funciones</h3>
+        <button @click="saludar()">Saludar</button> <!-- @click es para ejecutar una funcion al hacer click -->
+
 
 
     </div>

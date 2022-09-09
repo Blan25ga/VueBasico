@@ -26,7 +26,17 @@ new Vue({ // se crea una instancia de Vue y se le asigna a la variable app, que 
         number: 0,
         lista: ['uno', 'dos', 'tres'],
         activo: true, // se puede utilizar para mostrar o no mostrar un elemento del DOM, hay un ejemplo en el html. (v-show)
+        frutas: ['Manzana', 'Pera', 'Uva', 'Sandia', 'Melon'],
+        html: '<p>Hola a todos, estoy pintando desde una directiva de Vue</p>',
+        nombre: ""
+    },
+    methods: { // se le indica a Vue que los métodos que va a utilizar son los que están en el objeto methods
+        saludar: function () {
+            console.log(this.saludo) // se imprime en la consola el valor de la propiedad saludo (Hello Vue!)
+            // this hace referencia al objeto que contiene la propiedad saludo, en este caso, al objeto data, pero se puede utilizar para hacer referencia a cualquier propiedad del objeto.
+            // comoasi tambien poner el mensaje que queramos.
+        }
+    },
 
-    }
 })
 

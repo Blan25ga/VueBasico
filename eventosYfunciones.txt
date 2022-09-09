@@ -1,0 +1,45 @@
+
+//? Eventos y funciones de la variable
+
+//* Los eventos son funciones que se ejecutan cuando se produce un evento en la variable, por ejemplo, cuando se cambia el valor de la variable.
+
+- Los eventos se ejecutan cuando se llaman desde el código, por ejemplo, cuando se hace click en un botón.
+//*Este evento se ejecutan cuando con el @ click, cuando se hace click en un botón.
+
+Ejemplo de uso de la petición de datos @ click.
+
+codigo en index.js
+
+new Vue({ 
+    el: '#app', 
+    data: { 
+        saludo: 'Hello Vue!',
+        number: 0,
+        lista: ['uno', 'dos', 'tres'],
+        activo: true, 
+        frutas: ['Manzana', 'Pera', 'Uva', 'Sandia', 'Melon'],
+        html: '<p>Hola a todos, estoy pintando desde una directiva de Vue</p>',
+        nombre: ""
+    },
+    methods: { // **se le indica a Vue que los métodos que va a utilizar son los que están en el objeto methods
+        saludar: function () {
+            console.log(this.saludo)   // ** se imprime en la consola el valor de la propiedad saludo (Hello Vue!)
+            //* this hace referencia al objeto que contiene la propiedad saludo, en este caso, al objeto data, pero se puede utilizar para hacer referencia a cualquier propiedad del objeto.
+            //* como asi tambien poner el mensaje que queramos.
+        }
+    },
+
+})
+
+codigo en index.html
+
+
+
+    <div id="app">
+        <h1>{{saludo}}</h1>
+        <button @click="saludar">Saludar</button>
+    </div>
+
+//* El evento @ click se ejecuta cuando se hace click en el botón, y llama a la función saludar que está en el objeto methods.
+
+

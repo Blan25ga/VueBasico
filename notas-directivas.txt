@@ -1,0 +1,236 @@
+-Para trabajar con Vue.js, se debe importar la librería de Vue.js
+-Luego, se debe crear una instancia de Vue.js, la cual se encargará de manejar el DOM, y de hacer que el DOM se actualice cuando se cambien los datos.
+//*Esto se hace en un index.js, el cual se encargará de manejar la lógica de la aplicación.
+
+Esta instancia de Vue.js se crea con la función Vue(), la cual recibe un objeto con las propiedades que se desean manejar.
+ de lasiguiente manera: //? new Vue({}). hay un ejemplp debajo
+-En este objeto, se debe especificar el elemento del DOM que se desea manejar, y los datos que se desean manejar.
+de la siguiente manera: //* el: '#app',
+                        //* data: { saludo: 'Hola mundo' } 
+
+-En este caso, se desea manejar el elemento con id 'app', y el dato 'saludo'. Este se encuentra en el index.html, y se encuentra en el elemento div.
+
+-Crear una instancia de Vue para cada objeto, sedeben especificar los datos que se desean manejar, y el elemento del DOM que se desea manejar.
+//* como en el ejemplo que esta debajo.
+- Se debe realizar por cada id un objeto de Vue, para que cada id tenga sus propios datos y su propio elemento del DOM que manejar.
+
+//?--------Directivas de Vue---------- 
+
+-Una directiva de Vue es una instrucción que se le da a Vue para que haga algo con el DOM.
+-Para usar una directiva, se debe colocar el atributo v- seguido del nombre de la directiva.
+-En este caso, se desea que el elemento div con id 'app' se muestre en el DOM, por lo que se debe usar la directiva v-show.
+-Para que el elemento div con id 'app' se muestre en el DOM, se debe colocar el atributo v-show, y asignarle el valor de la variable saludo.
+
+//* Ejemplo de directiva a especificar en el index.js
+new Vue({
+    el: '#app',
+    data: {
+        saludo: 'Hola mundo'
+    }
+})
+
+-En este caso, se desea que el elemento div con id 'app' se muestre en el DOM.
+//*ejemplo de codigo con directiva en html, para el elemento div con id 'app' se muestre en el DOM:
+
+<div id="app"> 
+    <h1> {{ saludo }} </h1>     ** aca tomamos el id app y le decimos que se muestre el dato que esta en el index.js "saludo",  se mostrara Hola mundo en la web.
+</div>
+
+//* directiva "v-show": se usa para mostrar o no mostrar un elemento del DOM, dependiendo de un valor booleano.
+Ejemplo: 
+-codigo en index.js
+
+new Vue({
+    el: '#app',
+    data: {
+        saludo: 'Hola mundo',
+        activo: true
+    }
+})
+//*se agrega el elemento "activo", el cual se mostrara en la web, si el valor de la variable saludo es true, y se ocultara si el valor de la variable saludo es false.
+
+<div id="app"> 
+    <h1 v-show="active"> {{ saludo }} </h1>     ** se mostrara Hola mundo en la web, por que el valor de activo es true, si el valor seria false, no se mostraria.
+</div>
+
+//* directiva "v-if": se usa para mostrar o no mostrar un elemento del DOM, dependiendo de un valor booleano.
+//* la diferencia entre v-if y v-show, es que v-if elimina el elemento del DOM, (dependiendo de la condicion) mientras que v-show lo oculta.(simpre hablando desde la vista en consola)
+
+Ejemplo:
+
+-codigo en index.js
+
+new Vue({
+    el: '#app',
+    data: {
+        saludo: 'Hola mundo',
+        activo: true
+    }
+})
+
+
+-Codigo en index.html
+
+ <h3>v-if condicional</h3>
+        <p v-if="activo === true">Si estactivo se muestra </p>
+
+
+//* directiva "v-else": se usa para mostrar un elemento del DOM, si la condicion de la directiva v-if es falsa.
+
+Ejemplo:
+
+-codigo en index.js
+
+new Vue({
+    el: '#app',
+    data: {
+        saludo: 'Hola mundo',
+        activo: true
+    }
+})
+
+
+-Codigo en index.html
+
+ <h3>v-if condicional</h3>
+        <p v-if="activo === true">Si estactivo se muestra </p>
+        <p v-else>Si no esta activo se muestra</p>
+
+//* directiva "v-else-if": se usa para mostrar un elemento del DOM, si la condicion de la directiva v-if es falsa, y la condicion de la directiva v-else-if es verdadera.
+
+Ejemplo:
+
+-codigo en index.js
+
+new Vue({
+    el: '#app',
+    data: {
+        saludo: 'Hola mundo',
+        activo: true
+    }
+})
+
+
+-Codigo en index.html
+
+ <h3>v-if condicional</h3>
+        <p v-if="activo === true">Si estactivo se muestra </p>
+        <p v-else-if="activo === false">No esta activo</p>
+        <p v-else>No se que hacer</p>
+
+//* directiva "v-for": se usa para iterar sobre un arreglo, y mostrar cada uno de sus elementos en el DOM.
+//* Este va acompañado de la directiva :key, la cual sireve para la identificacion del elemento, y para que Vue pueda identificar los cambios en el DOM.
+
+Ejemplo:
+
+-codigo en index.js
+
+new Vue({
+    el: '#app',
+    data: {
+        saludo: 'Hola mundo',
+        activo: true,
+        frutas: ['Manzana', 'Pera', 'Uva', 'Sandia', 'Melon']
+    }
+})
+
+-Codigo en index.html
+
+ <h3>v-for</h3>
+        <ul>
+            <li v-for="frutas in frutas" :key="frutas"> {{ fruta }} </li> ** se mostrara cada elemento del arreglo frutas, en el DOM.
+        </ul>  
+//* En el v-for, se debe especificar el nombre de la variable que se usara para iterar sobre el arreglo, y el nombre del arreglo.
+//* Al v-for, se le debe agregar la directiva :key, para que Vue pueda identificar cada elemento del arreglo, y asi poder actualizarlos de manera eficiente.
+*** En este caso, se usa la variable frutas, para iterar sobre el arreglo frutas ***
+
+//*como armar una lista de 20 elementos, con v-for
+
+    <h3>v-for</h3>
+            <ul>
+                <li v-for="n in 20" :key="n"> {{ n }} </li> 
+            </ul>
+** se mostrara una lista de 20 elementos, con numeros del 1 al 20.
+
+
+//* directiva "v-html": se usa para mostrar el contenido de una variable, en el DOM, como si fuera html.
+//* Esta directiva es peligrosa, ya que puede permitir la inyeccion de codigo malicioso.
+
+Ejemplo:
+
+-codigo en index.js
+
+new Vue({
+    el: '#app',
+    data: {
+        saludo: 'Hola mundo',
+        activo: true,
+        frutas: ['Manzana', 'Pera', 'Uva', 'Sandia', 'Melon'],
+        html: '<h1>Este es un titulo</h1>'
+    }
+})
+
+-Codigo en index.html
+
+ <h3>v-html</h3>
+        <p v-html="html"></p> ** se mostrara el contenido de la variable html, en el DOM, como si fuera html.
+
+
+//* directiva "v-on": se usa para escuchar eventos del DOM, y ejecutar una funcion, cuando se dispara el evento.
+/* Esta directiva se puede abreviar con el signo @, y se le puede agregar un modificador,
+para que se ejecute la funcion solo cuando se dispare el evento, y no cuando se deje de disparar. */
+
+Ejemplo:
+
+-codigo en index.js
+
+new Vue({
+    el: '#app',
+    data: {
+        saludo: 'Hola mundo',
+        activo: true,
+        frutas: ['Manzana', 'Pera', 'Uva', 'Sandia', 'Melon'],
+        html: '<h1>Este es un titulo</h1>'
+    },
+    methods: {
+        saludar: function() {
+            alert('Hola mundo')
+        }
+    }
+})
+
+-Codigo en index.html
+
+ <h3>v-on</h3>
+        <button v-on:click="saludar">Saludar</button> ** se mostrara un boton, que al hacer click, ejecutara la funcion saludar.
+        <button @click="saludar">Saludar</button> ** se mostrara un boton, que al hacer click, ejecutara la funcion saludar.
+        <button @click="saludar" @click.once="saludar">Saludar</button> ** se mostrara un boton, que al hacer click, ejecutara la funcion saludar, solo una vez.
+
+//* Binding de eventos: se usa para pasar parametros a una funcion, cuando se dispara un evento.
+
+Ejemplo:
+
+-codigo en index.js
+
+new Vue({
+    el: '#app',
+    data: {
+        saludo: 'Hola mundo',
+        activo: true,
+        frutas: ['Manzana', 'Pera', 'Uva', 'Sandia', 'Melon'],
+        html: '<h1>Este es un titulo</h1>',
+        nombre: ""                 ** se crea una variable nombre, para guardar el nombre que se ingrese en el input del html.
+    }
+})
+
+-Codigo en index.html
+
+ <h3>Binding de eventos</h3>
+        <input type="text" v-model="nombre"> ** se mostrara un input, que al escribir en el, se guardara el valor en la variable nombre.
+        <p>
+        {{nombre}} ** se mostrara el valor de la variable nombre, en el DOM.
+        </p>
+//* En este caso, se usa la directiva v-model, para que el valor del input, se guarde en la variable nombre.
+//* todo lo que se escriba en el input, se pasara a la etiqueta "<p></p>", que muestra el valor de la variable nombre.
+
+
