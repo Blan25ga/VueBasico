@@ -17,7 +17,7 @@ de la siguiente manera: //* el: '#app',
 
 */
 
-//?
+//? codigo
 
 new Vue({ // se crea una instancia de Vue y se le asigna a la variable app, que es la que se va a utilizar en el html
     el: '#app', // se le indica a Vue que el elemento que va a controlar es el que tiene el id app
