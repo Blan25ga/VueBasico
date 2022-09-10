@@ -8,6 +8,17 @@
     <title>Practica con VueJs</title>
 </head>
 
+<!--se definen los styles para el cambio de color, estos siempre con _ -->
+<style>
+    .color_rojo {
+        color: red;
+    }
+
+    .color_verde {
+        color: green;
+    }
+</style>
+
 <body>
     <h1>Trabajando con Vue.Js!!</h1>
     <div id="app">
@@ -47,26 +58,36 @@
         <h3>Binding</h3>
         <!-- Binding es para enlazar datos, en este caso se enlaza el valor del input con el valor de la variable -->
         <p>
-            <input type="text" v-model="nombre"> <!-- v-model es para hacer binding con un input -->
-        </p>
-        <p>
-            {{ nombre }}
-            <!-- se muestra el valor de la variable nombre -->
+            <input type="text" v-model="texto"> <!-- v-model es para hacer binding con un input -->
         </p>
 
         <h3>Eventos y funciones</h3>
-        <button @click="saludar()">Saludar</button> <!-- @click es para ejecutar una funcion al hacer click -->
+        <button @click="saludar('Saludadndo desde el html')">Saludar</button>
+        <!-- @click es para ejecutar una funcion al hacer click -->
+        <br>
+        <br>
+        <p>Procesamiento de datos dentro de una funcion</p>
+
+        <input type="text" placeholder="Nombre" v-model="full_name">
+        <a href="#" @click="verificarFullName()">Verificar Nombre</a>
+        <p style="color: red">{{validation_error}}</p>
+        <br>
+
+        <h3>Binding de class en html</h3>
+        <label for="nombre" :class="{ color_verde: text_success, color_rojo: text_error}">
+            <!--  ":class", al ponerle los 2 puntos se le indica a vuejs que es un binding -->
+            Nombre:
+            <!--  "color-verde" es el nombre de la clase que se encuentra en el style -->
+        </label>
+        <input type="text" v-model="nombre">
+        <button @click="verificarNombre()">Comprobar</button>
 
 
 
-    </div>
-
-
-
-    <script type="text/javascript" src="vue2.js"></script>
-    <!-- importamos vue, desde la pagina, se guardo toda la pagina abirendo el link de vue2-->
-    <script type="text/javascript" src="index.js"></script>
-    <!-- importamos el archivo js donde se encuentra el codigo de vue, siempre despues de la pagina de vue-->
+        <script type="text/javascript" src="vue2.js"></script>
+        <!-- importamos vue, desde la pagina, se guardo toda la pagina abirendo el link de vue2-->
+        <script type="text/javascript" src="index.js"></script>
+        <!-- importamos el archivo js donde se encuentra el codigo de vue, siempre despues de la pagina de vue-->
 </body>
 
 </html>

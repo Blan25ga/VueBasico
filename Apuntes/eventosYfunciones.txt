@@ -37,9 +37,61 @@ codigo en index.html
 
     <div id="app">
         <h1>{{saludo}}</h1>
-        <button @click="saludar">Saludar</button>
+        <button @click="saludar">Saludo</button> // ** se le indica a Vue que cuando se haga click en el botón, se ejecute el método saludar
     </div>
 
 //* El evento @ click se ejecuta cuando se hace click en el botón, y llama a la función saludar que está en el objeto methods.
 
+//* El objeto methods es un objeto que contiene funciones que se pueden llamar desde el código, por ejemplo, desde un evento.
 
+
+
+//? Procesamiento de datos dentro de una funcion.
+
+//* se recupera informcaion creando los palos parametros en el html y declarando los mismo en data: {}.
+//* Accedemos a ellos desde methods: {} y los procesamos con funciones.
+
+codigo en index.html:
+
+  <input type="text" placeholder="Nombre" v-model="full_name">
+        <a href="#" @click="verificarFullName">Verificar Nombre</a>
+        <p style="color: red">{{validation_error}}</p>
+    </div>
+//* se crea un input de tipo text, con un placeholder y se le indica que el valor del input se guarde en la variable full_name, que está en el objeto data.
+//* se crea un enlace con un evento @ click que llama a la función verificarFullName, que está en el objeto methods.
+
+codigo en index.js:
+
+new Vue({ 
+    el: '#app', 
+    data: { 
+        saludo: 'Hello Vue!',
+        number: 0,
+        lista: ['uno', 'dos', 'tres'],
+        activo: true, 
+        frutas: ['Manzana', 'Pera', 'Uva', 'Sandia', 'Melon'],
+        html: '<p>Hola a todos, estoy pintando desde una directiva de Vue</p>',
+     //*   full_name: "",
+     //*   validation_error: ""
+    },
+    methods: { 
+        saludar: function () {
+            console.log(this.saludo)   
+           
+        },
+        verificarFullName: function () {                  //* se crea la función verificarFullName
+            if (this.full_name.length < 5) {              //* se comprueba que el valor de la variable full_name tenga al menos 5 caracteres
+                this.validation_error = "El nombre debe tener al menos 5 caracteres"   //* si no tiene al menos 5 caracteres, se guarda el mensaje de error en la variable validation_error
+            } else {
+                this.validation_error = ""          //* si tiene al menos 5 caracteres, se borra el mensaje de error
+            }
+        }
+    },
+
+})
+
+//* En el objeto data se crean las variables full_name y validation_error, que se utilizan en la función verificarFullName.
+//* En el objeto methods se crea la fución verificarFullName, que se ejecuta cuando se hace click en el enlace.
+
+//* La función verificarFullName comprueba que el valor de la variable full_name tenga al menos 5 caracteres,
+//* y si no los tiene, guarda el mensaje de error en la variable validation_error, y si los tiene, borra el mensaje de error.

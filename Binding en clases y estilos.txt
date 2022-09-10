@@ -1,0 +1,59 @@
+
+//? Binding en calses de datos
+//* Los datos se pueden enlazar a un control de formulario de la siguiente manera:
+//* 1. En el diseñador de formularios, seleccione el control de formulario y, a continuación, haga clic en el botón de enlace de datos.
+//* 2. En el cuadro de diálogo Enlace de datos, seleccione el origen de datos y el campo de datos que desea enlazar al control de formulario.
+//* 3. Haga clic en Aceptar.
+
+ejemplo de enlace de datos
+
+//* codigo en etiqueta style:
+
+<style>
+    .color_rojo {
+        color: red;
+    }
+
+    .color_verde {
+        color: green;
+    }
+</style>
+//! Esta dependencia es necesaria para poder usar el enlace de datos, se coloca entre el head y el body.
+
+
+
+//* codigo html:
+
+
+ <h3>Binding de class en html</h3>
+        <label for="nombre" :class="{ color_verde: text_success, color_rojo: text_error}">
+            <!--  ":class", al ponerle los 2 puntos se le indica a vuejs que es un binding para poder escribir codigo dentro de el -->
+            Nombre:
+            <!--  "color_verde" , "color_rojo" es el nombre de la clase que se encuentra en el style -->
+        </label>
+        <input type="text" v-model="nombre">
+        <button @click="verificarNombre()"> Comprobar </button>
+
+//* codigo js:
+
+    data: {
+                nombre: '',
+                text_success: false,
+                text_error: false
+            },
+            methods: {
+                verificarNombre: function () {
+                    if (this.nombre == 'Juan') {
+                        this.text_success = true;
+                        this.text_error = false;
+                    } else {
+                        this.text_error = true;
+                        this.text_success = false;
+                    }
+                }
+            }
+
+//* En el ejemplo anterior se puede ver como se enlaza una clase a un elemento html, en este caso un input, para que cambie de color dependiendo de la condición que se cumpla.
+//* Si el nombre es igual a "Juan" el input cambia de color a verde, si no es igual a "Juan" el input cambia de color a rojo.
+
+
