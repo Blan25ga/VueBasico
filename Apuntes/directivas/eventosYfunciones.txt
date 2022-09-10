@@ -6,7 +6,7 @@
 - Los eventos se ejecutan cuando se llaman desde el código, por ejemplo, cuando se hace click en un botón.
 //*Este evento se ejecutan cuando con el @ click, cuando se hace click en un botón.
 
-Ejemplo de uso de la petición de datos @ click.
+//!Ejemplo de uso de la petición de datos @ click.
 
 codigo en index.js
 
@@ -31,7 +31,7 @@ new Vue({
 
 })
 
-codigo en index.html
+//*codigo en index.html
 
 
 
@@ -51,7 +51,8 @@ codigo en index.html
 //* se recupera informcaion creando los palos parametros en el html y declarando los mismo en data: {}.
 //* Accedemos a ellos desde methods: {} y los procesamos con funciones.
 
-codigo en index.html:
+
+//* codigo en index.html:
 
   <input type="text" placeholder="Nombre" v-model="full_name">
         <a href="#" @click="verificarFullName">Verificar Nombre</a>
@@ -85,7 +86,8 @@ new Vue({
             } else {
                 this.validation_error = ""          //* si tiene al menos 5 caracteres, se borra el mensaje de error
             }
-        }
+        },
+        
     },
 
 })

@@ -1,9 +1,8 @@
 
 //? Binding en calses de datos
+
 //* Los datos se pueden enlazar a un control de formulario de la siguiente manera:
-//* 1. En el diseñador de formularios, seleccione el control de formulario y, a continuación, haga clic en el botón de enlace de datos.
-//* 2. En el cuadro de diálogo Enlace de datos, seleccione el origen de datos y el campo de datos que desea enlazar al control de formulario.
-//* 3. Haga clic en Aceptar.
+
 
 ejemplo de enlace de datos
 
@@ -19,6 +18,7 @@ ejemplo de enlace de datos
     }
 </style>
 //! Esta dependencia es necesaria para poder usar el enlace de datos, se coloca entre el head y el body.
+//! Son los estilos que se usaran para que el texto cambie de color dependiendo de la condicion.
 
 
 
@@ -26,6 +26,7 @@ ejemplo de enlace de datos
 
 
  <h3>Binding de class en html</h3>
+
         <label for="nombre" :class="{ color_verde: text_success, color_rojo: text_error}">
             <!--  ":class", al ponerle los 2 puntos se le indica a vuejs que es un binding para poder escribir codigo dentro de el -->
             Nombre:
@@ -33,6 +34,10 @@ ejemplo de enlace de datos
         </label>
         <input type="text" v-model="nombre">
         <button @click="verificarNombre()"> Comprobar </button>
+
+//* se puede usar el binding de class para cambiar el color de un texto dependiendo de una condicion,
+//* en este caso se usa para cambiar el color de un texto dependiendo de si el nombre es correcto o no.
+
 
 //* codigo js:
 
@@ -59,7 +64,7 @@ ejemplo de enlace de datos
 
 //? Binding de estilos 
 
-//* En el binding de estilos se puede enlazar un estilo a un elemento html, para que cambie de color, tamaño, etc dependiendo de la condición que se cumpla.
+//* En el binding de estilos: se puede enlazar un estilo a un elemento html, para que cambie de color, tamaño, etc dependiendo de la condición que se cumpla.
 //* Para poder enlazar un estilo a un elemento html se debe usar la directiva "v-bind:style" y dentro de los corchetes se debe escribir el estilo que se desea enlazar.
 //* Ejemplo:
 
@@ -69,6 +74,10 @@ ejemplo de enlace de datos
     <button @click="cambiarTexto()">CambiarTamaño</button>       //*<!-- se crea un input para que el usuario pueda ingresar el tamaño del texto, recordar declarlo en data del index.js-->
     <p :style="{fontSize: font_texto + 'px'}"> Cambiando de tamaño el texto de prueba</p>
     <!-- :style es para hacer binding con un style, se le indica que el valor de fontSize es igual a la variable font_texto, se le agrega el px para que sepa que es un tamaño en pixeles -->
+//* En el ejemplo anterior se puede ver como se enlaza un estilo a un elemento html, en este caso un parrafo,
+//* para que cambie de tamaño dependiendo de la condición que se cumpla.
+
+
 
 //*codigo js:
 
@@ -86,9 +95,15 @@ ejemplo de enlace de datos
                         this.text_error = true;
                         this.text_success = false;
                     }
-                }
-            }
+                },
+                 cambiarTexto: function () {
+            this.font_texto = parseInt(this.sizetxt);
+}
 
-//* En el ejemplo anterior se puede ver como se enlaza un estilo a un elemento html, en este caso un parrafo,
-//*para que cambie de tamaño dependiendo de la condición que se cumpla. 
+//* Een el codigo js se declaran las variables que se van a usar, en este caso se declaran las variables que se van a usar para el binding de estilos.
+//* En el metodo "cambiarTexto" se le asigna el valor de la variable "sizetxt" a la variable "font_texto",
+//* para que el texto cambie de tamaño dependiendo del valor que se ingrese en el input.
+
+
+
 
