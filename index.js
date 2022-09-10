@@ -34,6 +34,8 @@ new Vue({                        // se crea una instancia de Vue y se le asigna 
         nombre: "",             // se utiliza para hacer dos way data binding, hay un ejemplo en el html. (v-model)
         text_error: false,         // se utiliza para mostrar un mensaje de error en el html, si el usuario no ingresa un texto
         text_success: false, // se utiliza para mostrar un mensaje de éxito en el html, si el usuario ingresa un texto
+        sizetxt: "",
+        font_texto: 10,            // se utiliza para mostrar el tamaño del texto ingresado por el usuario
     },
     methods: {                              // se le indica a Vue que los métodos que va a utilizar son los que están en el objeto methods
         saludar: function (saludito) {      //*podemos pintar un parametro, y lueo en el html poner el mensaje a la funcion.
@@ -52,15 +54,31 @@ new Vue({                        // se crea una instancia de Vue y se le asigna 
             }
         },
         verificarNombre: function () {       // se crea un método para verificar si el nombre está completo
-            if (this.nombre === 'neunapp') { // si el nombre está completo, se retorna true
+            if (this.nombre === 'juan') { // si el nombre está completo, se retorna true
                 this.text_success = true     // se muestra el mensaje de éxito
                 this.text_error = false      // se oculta el mensaje de error
             } else {
                 this.text_error = true        // se muestra el mensaje de error
                 this.text_success = false      // se oculta el mensaje de éxito
             }
+        },
+        cambiarTexto: function () {
+            this.font_texto = parseInt(this.sizetxt); // el parseInt es para que el valor que se ingresa en el input sea un numero y no un string
+
         }
     }
 });
 
 
+new Vue({
+    el: '#app2',
+    data: {
+        num1: 0,
+        num2: 10,
+
+    },
+    methods: {
+
+    }
+
+})

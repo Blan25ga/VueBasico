@@ -57,3 +57,38 @@ ejemplo de enlace de datos
 //* Si el nombre es igual a "Juan" el input cambia de color a verde, si no es igual a "Juan" el input cambia de color a rojo.
 
 
+//? Binding de estilos 
+
+//* En el binding de estilos se puede enlazar un estilo a un elemento html, para que cambie de color, tamaño, etc dependiendo de la condición que se cumpla.
+//* Para poder enlazar un estilo a un elemento html se debe usar la directiva "v-bind:style" y dentro de los corchetes se debe escribir el estilo que se desea enlazar.
+//* Ejemplo:
+
+//*codigo html:
+
+<input type="text" v-model="sizetxt">         //*<!-- el v-model es para hacer binding con un input -->
+    <button @click="cambiarTexto()">CambiarTamaño</button>       //*<!-- se crea un input para que el usuario pueda ingresar el tamaño del texto, recordar declarlo en data del index.js-->
+    <p :style="{fontSize: font_texto + 'px'}"> Cambiando de tamaño el texto de prueba</p>
+    <!-- :style es para hacer binding con un style, se le indica que el valor de fontSize es igual a la variable font_texto, se le agrega el px para que sepa que es un tamaño en pixeles -->
+
+//*codigo js:
+
+ data: {
+                nombre: '',
+                text_success: false, //*<!-- se declaran las variables que se van a usar -->
+                text_error: false     //*<!-- se declaran las variables que se van a usar -->
+            },
+            methods: {
+                verificarNombre: function () {
+                    if (this.nombre == 'Juan') {
+                        this.text_success = true;
+                        this.text_error = false;
+                    } else {
+                        this.text_error = true;
+                        this.text_success = false;
+                    }
+                }
+            }
+
+//* En el ejemplo anterior se puede ver como se enlaza un estilo a un elemento html, en este caso un parrafo,
+//*para que cambie de tamaño dependiendo de la condición que se cumpla. 
+

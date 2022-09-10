@@ -81,13 +81,20 @@
         </label>
         <input type="text" v-model="nombre">
         <button @click="verificarNombre()">Comprobar</button>
+        <br>
+        <br>
+        <h3>Binding de styles</h3>
+        <input type="text" v-model="sizetxt"> <!-- el v-model es para hacer binding con un input -->
+        <!-- se crea un input para que el usuario pueda ingresar el tamaño del texto, recordar declarlo en data del index.js-->
+        <button @click="cambiarTexto()">CambiarTamaño</button>
+        <p :style="{fontSize: font_texto + 'px'}"> Cambiando de tamaño el texto de prueba</p>
+        <!-- :style es para hacer binding con un style, se le indica que el valor de fontSize es igual al valor de la variable font_texto -->
+    </div>
 
-
-
-        <script type="text/javascript" src="vue2.js"></script>
-        <!-- importamos vue, desde la pagina, se guardo toda la pagina abirendo el link de vue2-->
-        <script type="text/javascript" src="index.js"></script>
-        <!-- importamos el archivo js donde se encuentra el codigo de vue, siempre despues de la pagina de vue-->
+    <script type="text/javascript" src="vue2.js"></script>
+    <!-- importamos vue, desde la pagina, se guardo toda la pagina abirendo el link de vue2-->
+    <script type="text/javascript" src="index.js"></script>
+    <!-- importamos el archivo js donde se encuentra el codigo de vue, siempre despues de la pagina de vue-->
 </body>
 
 </html>
