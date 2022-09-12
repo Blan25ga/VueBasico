@@ -1,13 +1,15 @@
-//?Para trabajar con Vue.js, se debe importar la librería de Vue2.js
+//? Para trabajar con Vue.js, se debe importar la librería de Vue2.js
 
 -como? cortando y pegando la siuiente url en una nueva pestaña.js
  //*  https://cdn.jsdelivr.net/npm/vue@2
 
 - Una vez echo esto, nos aparece la siguiente ventana.
+
 img/print.jpg
 
 -Luego, guardar la pagina en la carpeta en donde abrimos nuestro proyecto. 
 De la siguiente manera:
+
 img/print2.jpg
 
 

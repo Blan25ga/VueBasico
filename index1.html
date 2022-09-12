@@ -93,6 +93,12 @@
 
     <div id="app2">
         <h2>=========Propiedades en Vue.js=========</h2>
+        <input type="number" v-model="num1">
+        <input type="number" v-model="num2">
+        <button @click="sumarNumeros()">Sumar</button>
+        <p>La suma es: {{sumarNumeros()}}</p>
+        <p>La suma es: {{ resultado }}</p> <!-- se muestra el resultado de la suma -->
+
 
     </div>
 

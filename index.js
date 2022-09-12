@@ -1,23 +1,5 @@
-/*
--Para trabajar con Vue.js, se debe importar la librería de Vue.js
--Luego, se debe crear una instancia de Vue.js, la cual se encargará de manejar el DOM, y de hacer que el DOM se actualice cuando se cambien los datos.
-//*Esto se hace en un index.js, el cual se encargará de manejar la lógica de la aplicación.
 
-Esta instancia de Vue.js se crea con la función Vue(), la cual recibe un objeto con las propiedades que se desean manejar.
- de lasiguiente manera: //? new Vue({}). hay un ejemplp debajo
--En este objeto, se debe especificar el elemento del DOM que se desea manejar, y los datos que se desean manejar.
-de la siguiente manera: //* el: '#app',
-                        //* data: { saludo: 'Hola mundo' } 
-
--En este caso, se desea manejar el elemento con id 'app', y el dato 'saludo'. Este se encuentra en el index.html, y se encuentra en el elemento div.
-
--Crear una instancia de Vue para cada objeto, sedeben especificar los datos que se desean manejar, y el elemento del DOM que se desea manejar.
-//* como en el ejemplo que esta debajo.
-- Se debe realizar por cada id un objeto de Vue, para que cada id tenga sus propios datos y su propio elemento del DOM que manejar.
-
-*/
-
-//? codigo
+//? Iniciando Codigo con Vue2.js
 
 new Vue({                        // se crea una instancia de Vue y se le asigna a la variable app, que es la que se va a utilizar en el html
     el: '#app',                 // se le indica a Vue que el elemento que va a controlar es el que tiene el id app
@@ -74,11 +56,21 @@ new Vue({
     el: '#app2',
     data: {
         num1: 0,
-        num2: 10,
+        num2: 0,
+        resultado: 0, // se utiliza para mostrar el resultado de la suma de los dos números ingresados por el usuario
 
     },
-    methods: {
+    computed: { // se utiliza para hacer operaciones con los datos que se ingresan en los inputs
+        sumarNumeros: function () {
+            return parseInt(this.num1) + parseInt(this.num2);
 
+        }
+    },
+    methods: {
+        sumarNumeros: function () {
+            return parseInt(this.num1) + parseInt(this.num2);
+            // parseInt es para que el valor que se ingresa en el input sea un numero y no un string.
+        }
     }
 
 })

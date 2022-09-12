@@ -1,0 +1,81 @@
+
+//? Propiedades computadas con vue.js
+
+ejemplo de suma de componentes:
+
+//* Codigo html 
+
+<div id="app2">
+        <h2>=========Propiedades en Vue.js=========</h2>
+
+        <input type="number" v-model="num1">
+        <input type="number" v-model="num2">
+        <button @click="sumarNumeros()">Sumar</button>
+        <p>La suma es: {{ resultado }}</p> <!-- se muestra el resultado de la suma -->
+
+</div>
+
+//* Codigo javascript
+
+new Vue({
+    el: '#app2',
+    data: {
+        num1: 0,
+        num2: 10,
+        resultado: 0, // se utiliza para mostrar el resultado de la suma de los dos números ingresados por el usuario
+
+    },
+    methods: {
+        sumarNumeros: function () {
+            this.resultado = parseInt(this.num1) + parseInt(this.num2);
+            //* parseInt es para que el valor que se ingresa en el input sea un numero y no un string.
+        }
+    }
+
+})
+
+//* En el codigo html se muestra el resultado de la suma de los dos números ingresados por el usuario en cada uno de los inputs,
+//* luego de apretar el boton sumar.
+
+//* En el codigo javascript se utiliza el metodo sumarNumeros para sumar los dos números ingresados por el usuario
+//* En el codigo javascript se utiliza el metodo parseInt para que el valor que se ingresa en el input sea un numero y no un string.
+
+
+//! Propiedad computada:
+
+//* Es una propiedad que se calcula en base a otras propiedades y se guarda en una variable.
+
+/ Ejemplo:
+
+new Vue({
+    el: '#app2',
+    data: {
+        num1: 0,
+        num2: 10,
+        resultado: 0, // se utiliza para mostrar el resultado de la suma de los dos números ingresados por el usuario
+
+    },
+     //* Se agrega el metodo computed, el cual es un objeto que contiene las propiedades computadas.
+    computed: {                                   //* se utiliza para hacer operaciones con los datos que se ingresan en los inputs  *//
+       sumarNumeros: function () {
+           this.resultado = parseInt(this.num1) + parseInt(this.num2);
+           return this.resultado;
+        }
+    },
+    methods: {
+        sumarNumeros: function () {
+            this.resultado = parseInt(this.num1) + parseInt(this.num2);
+            //*parseInt es para que el valor que se ingresa en el input sea un numero y no un string.
+        }
+    }
+
+})
+
+//* Y en el codigo html se llama a la funcion sumarNumeros de la siguiente manera:
+
+<p>La suma es: {{ sumarNumeros }}</p> <!-- se muestra el resultado de la suma -->
+
+//? El metodo "computed", guarda en cache el resultado de la funcion, para que no se vuelva a ejecutar cada vez que se modifica un dato.
+//? El metodo "methods", no guarda en cache el resultado de la funcion, por lo que se vuelve a ejecutar cada vez que se modifica un dato.
+
+
