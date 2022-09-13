@@ -1,0 +1,34 @@
+
+//? Propiedades Calculadas en Vue2
+
+//* watch, es una propiedad que se ejecuta cuando se detecta un cambio en el valor de una propiedad,
+//* se puede usar para ejecutar una función cuando se detecta un cambio en el valor de una propiedad
+//* o para ejecutar una función cuando se detecta un cambio en el valor de una propiedad y se cumple una condición.
+
+//? Las propiedades calculadas se puden usar solo con los datos que se encuentran en el componente, no se pueden usar con datos que se encuentran en el store.
+//? Es decir, solo con los datos ingresados en el index.js.
+
+new Vue({
+    el: '#app',        
+    data: {
+    num1: 0,
+    num2: 0,
+    resultado: 0
+    },
+
+    watch: { //-watch es un metodo que se ejecuta cada vez que se modifica una propiedad
+    num1: function (val) {
+        this.resultado = val + this.num2
+    },
+    num2: function (val) {
+        this.resultado = val + this.num1
+    }
+    }
+
+})
+
+//* En el codigo anterior, se crean dos propiedades num1 y num2, y una propiedad resultado que es la suma de las dos anteriores.
+//* La propiedad resultado se actualiza cada vez que se modifica la propiedad num1 o num2.
+//? El metodo "watch" se ejecuta cada vez que se modifica una propiedad, pero no se puede usar para calcular propiedades como en el caso de las propiedades computadas.
+//? El metodo "watch" se usa para ejecutar acciones cuando se modifica una propiedad, por ejemplo, para hacer una peticion a una API cuando se modifica una propiedad.
+//? Es recomendable usar el metodo "watch" cuando se modifica una propiedad que no es computada.

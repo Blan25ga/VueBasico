@@ -55,17 +55,30 @@ new Vue({                        // se crea una instancia de Vue y se le asigna 
 new Vue({
     el: '#app2',
     data: {
-        num1: 0,
-        num2: 0,
+        num1: "", //comillas para que el input se vea vacio.
+        num2: 10,
         resultado: 0, // se utiliza para mostrar el resultado de la suma de los dos números ingresados por el usuario
 
     },
+    //PROPIEADD COMPUTADA (COMPUTED)
     computed: { // se utiliza para hacer operaciones con los datos que se ingresan en los inputs
         sumarNumeros: function () {
             return parseInt(this.num1) + parseInt(this.num2);
 
         }
     },
+    //(PROPIEDAD CALCULADA o OBSERVADA)
+    // watch: { propiedad que se va a observar (num1, num2), y el método que se va a ejecutar cuando se modifique la propiedad que se está observando
+    watch: {
+        num1: function (val) { // se realiza funcion para que el resultado se actualice en tiempo real
+            this.resultado = parseInt(val) + parseInt(this.num2); // se realiza la suma de los dos números ingresados por el usuario
+        },
+
+    },
+    //* Watch hace que se ejecute el metodo cada vez que se modifica el valor de la propiedad que se esta observando.
+    //* es recomendable no abusar de este metodo, ya que se ejecuta cada vez que se modifica el valor de la propiedad que se esta observando.
+    //* y esto puede generar problemas de rendimiento en la aplicacion.
+
     methods: {
         sumarNumeros: function () {
             return parseInt(this.num1) + parseInt(this.num2);
