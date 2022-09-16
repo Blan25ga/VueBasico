@@ -1,17 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./bulma.min.css">
-    <title>Mis Ideas</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./bulma.min.css">
+  <title>Mis Ideas</title>
 </head>
 
 <body>
+  <div id="app" style="padding: 2em;">
+    <section class="hero">
+      <div class="hero-body">
+        <h1 class="title">
+          Mis ideas
+        </h1>
+        <h2 class="subtitle">
+          Aquí puedes ver las ideas que he tenido
+        </h2>
+      </div>
+    </section>
 
-    <script type="text/javascript" src="./vue@2.js"></script>
+    <div class="columns">
+      <div class="column">
+        <section class="hero">
+          <div class="hero-body">
+
+            <h2 class="subtitle">
+              Registrar Idea
+            </h2>
+            <div class="field">
+              <label class="label">Idea</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Ingresar Idea">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Prioridad</label>
+              <div class="control">
+                <div class="select">
+                  <select>
+                    <option>Basica</option>
+                    <option>Importante</option>
+                    <option>Muy Importante</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <button class="button is-success">Ingresar Idea</button>
+          </div>
+
+      </div>
+      </section>
+    </div>
+
+    <div class="column">
+      <section class="hero">
+        <div class="hero-body">
+          <div class="container">
+            <h2 class="subtitle">
+              Lista de Ideas
+            </h2>
+          </div>
+
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" placeholder="Buscar Idea">
+            </div>
+          </div>
+
+          <table class="table">
+            <thead>
+              <th>Idea</th>
+              <th>Prioridad</th>
+              <th>Acciones</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Aqui va la idea</td>
+                <td><span class="tag is-warning">Importante</span></td>
+                <td><button class="button is-danger">Eliminar</button></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </section>
+    </div>
+  </div>
+  <script type="text/javascript" src="./vue@2.js"></script>
 </body>
 
 </html>
