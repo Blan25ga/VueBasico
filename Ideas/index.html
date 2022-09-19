@@ -65,7 +65,8 @@
 
             <div class="field">
               <div class="control">
-                <input class="input is-primary" type="text" placeholder="Buscar Idea" v-model="idea_txt">
+                <input class="input is-primary" type="text" v-model="search_text" placeholder="Buscar Idea"
+                  v-model="idea_txt">
               </div>
             </div>
 
@@ -86,7 +87,11 @@
                     <span v-esle-if="i.prioridad === 'I'" class="tag is-warning">Importante</span>
                     <span v-else class="tag is-danger">Muy importante</span>
                   </td>
-                  <td><button class="button is-danger is-light">Eliminar</button></td>
+                  <td>
+                    <button class="button is-danger is-light" @click="EliminarIdea(i.id)">
+                      Eliminar
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -96,7 +101,8 @@
       </div>
     </div>
   </div>
-  <script type="text/javascript" src="./vue@2.js"></script>
+  <script type=" text/javascript" src="./vue@2.js"></script>
+  <script type=" text/javascript" src="./axios.min.js"></script>
   <script type="text/javascript" src="ideas.js"></script>
 </body>
 
