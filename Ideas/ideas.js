@@ -10,6 +10,7 @@ new Vue({
 
         ],
         search_text: '',
+        lista_ideas_servidor: [],
 
     },
     watch: {
@@ -38,7 +39,12 @@ new Vue({
             this.lista_ideas.splice(index, 1);
         },
         CargarDatosServidor: function () {
-            axios.get('http://localhost:3000/ideas')  // se realiza la petición al servidor y se obtiene la respuesta mediante una promesa
+            var self = this;
+            axios.get('https://nuenapp.com/api/idea/lista/').then(
+                function (response) {
+                    self.lista_ideas_servidor = response.data;
+                }
+            )
         }
 
     },

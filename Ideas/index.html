@@ -13,12 +13,14 @@
   <div id="app" style="padding: 2em;">
     <section class="hero">
       <div class="hero-body">
-        <h1 class="title">
-          Mis ideas
-        </h1>
-        <h2 class="subtitle">
-          Aquí puedes ver las ideas que he tenido
-        </h2>
+        <div class="container">
+          <h1 class="title">
+            Mis ideas
+          </h1>
+          <h2 class="subtitle">
+            Aquí puedes ver las ideas que he tenido
+          </h2>
+        </div>
       </div>
     </section>
 
@@ -88,9 +90,7 @@
                     <span v-else class="tag is-danger">Muy importante</span>
                   </td>
                   <td>
-                    <button class="button is-danger is-light" @click="EliminarIdea(i.id)">
-                      Eliminar
-                    </button>
+                    <button class="button is-danger is-light" @click="EliminarIdea(i.id)">Eliminar</button>
                   </td>
                 </tr>
               </tbody>
@@ -100,10 +100,51 @@
         </section>
       </div>
     </div>
-  </div>
-  <script type=" text/javascript" src="./vue@2.js"></script>
-  <script type=" text/javascript" src="./axios.min.js"></script>
-  <script type="text/javascript" src="ideas.js"></script>
+
+
+    <!-- Trabajando con axios para hacer peticiones a la API -->
+    <div>
+      <section class="hero">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              Mis ideas desde un servidor
+            </h1>
+            <h2 class="subtitle">
+              Aquí puedes ver las ideas que se obtuvieron desde un servidor
+            </h2>
+            <button @click="CargarDatosServidor()" class="button is-success">Cargar datos</button>
+
+            <table class="table">
+              <thead>
+                <th>Idea</th>
+                <th>Prioridad</th>
+                <th>Acciones</th>
+              </thead>
+              <tbody>
+                <!-- la etiqueta, tbody, es la que contiene los datos de la tabla -->
+                <tr v-for="i in lista_ideas">
+                  <!-- sellama a la lista de ideas -->
+                  <!-- v-for es un ciclo for de vuejs -->
+                  <td>{{ i.idea }}</td> <!-- se llama a la lista de ideas y se llama a la columna idea -->
+                  <td>
+                    <span v-if="i.prioridad === 'B'" class="tag is-info">Basica</span>
+                    <span v-esle-if="i.prioridad === 'I'" class="tag is-warning">Importante</span>
+                    <span v-else class="tag is-danger">Muy importante</span>
+                  </td>
+                  <td>
+                    <button class="button is-danger is-light" @click="EliminarIdea(i.id)">Eliminar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type=" text/javascript" src="./vue@2.js"></script>
+    <script type=" text/javascript" src="./axios.min.js"></script>
+    <script type="text/javascript" src="ideas.js"></script>
 </body>
 
 </html>
