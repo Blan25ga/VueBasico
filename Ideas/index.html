@@ -26,71 +26,78 @@
       <div class="column">
         <section class="hero">
           <div class="hero-body">
+            <div class="container">
+              <h2 class="subtitle">
+                Registrar Idea
+              </h2>
+              <div class="field">
+                <label class="label">Idea</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="Ingresar Idea">
+                </div>
 
-            <h2 class="subtitle">
-              Registrar Idea
-            </h2>
-            <div class="field">
-              <label class="label">Idea</label>
-              <div class="control">
-                <input class="input" type="text" placeholder="Ingresar Idea">
               </div>
-            </div>
-
-            <div class="field">
-              <label class="label">Prioridad</label>
-              <div class="control">
-                <div class="select">
-                  <select>
-                    <option>Basica</option>
-                    <option>Importante</option>
-                    <option>Muy Importante</option>
-                  </select>
+              <div class="field">
+                <label class="label">Prioridad</label>
+                <div class="control">
+                  <div class="select">
+                    <select v-model="prioridad">
+                      <option value="B">Basica</option>
+                      <option value="I">Importante</option>
+                      <option value=" M">Muy Importante</option>
+                    </select>
+                  </div>
                 </div>
               </div>
+              <button @click="AgregarIdea()" class="button is-success">Agregar</button>
             </div>
-            <button class="button is-success">Ingresar Idea</button>
           </div>
-
+        </section>
       </div>
-      </section>
-    </div>
-
-    <div class="column">
-      <section class="hero">
-        <div class="hero-body">
-          <div class="container">
-            <h2 class="subtitle">
-              Lista de Ideas
-            </h2>
-          </div>
-
-          <div class="field">
-            <div class="control">
-              <input class="input" type="text" placeholder="Buscar Idea">
+      <div class="column">
+        <section class="hero">
+          <div class="hero-body">
+            <div class="container">
+              <h2 class="subtitle">
+                Lista de Ideas
+              </h2>
             </div>
+
+            <div class="field">
+              <div class="control">
+                <input class="input is-primary" type="text" placeholder="Buscar Idea" v-model="idea_txt">
+              </div>
+            </div>
+
+            <table class="table">
+              <thead>
+                <th>Idea</th>
+                <th>Prioridad</th>
+                <th>Acciones</th>
+              </thead>
+              <tbody>
+                <!-- la etiqueta, tbody, es la que contiene los datos de la tabla -->
+                <tr v-for="i in lista_ideas">
+                  <!-- sellama a la lista de ideas -->
+                  <!-- v-for es un ciclo for de vuejs -->
+                  <td>{{ i.idea }}</td> <!-- se llama a la lista de ideas y se llama a la columna idea -->
+                  <td>
+                    <span v-if="i.prioridad === 'B'" class="tag is-info">Basica</span>
+                    <span v-esle-if="i.prioridad === 'I'" class="tag is-warning">Importante</span>
+                    <span v-else class="tag is-danger">Muy importante</span>
+                  </td>
+                  <td><button class="button is-danger is-light">Eliminar</button></td>
+                </tr>
+              </tbody>
+            </table>
+
           </div>
-
-          <table class="table">
-            <thead>
-              <th>Idea</th>
-              <th>Prioridad</th>
-              <th>Acciones</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Aqui va la idea</td>
-                <td><span class="tag is-warning">Importante</span></td>
-                <td><button class="button is-danger">Eliminar</button></td>
-              </tr>
-            </tbody>
-          </table>
-
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   </div>
   <script type="text/javascript" src="./vue@2.js"></script>
+  <script type="text/javascript" src="ideas.js"></script>
 </body>
 
 </html>
